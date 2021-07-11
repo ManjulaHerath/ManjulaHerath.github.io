@@ -107,7 +107,6 @@
                   src="images/LibreRespire.jpg" class="img-responsive" alt="team img 1"></a>
               <div class="team-des">
                 <h4>LibreRespire Ventilator</h4>
-                <meta http-equiv="content-type" content="text/html; charset=utf-8">
                 An Open source hardware initiative to tackle the mismatch of
                 medical devices formed by an organized group of professionals
                 from multiple disciplines focused on developing an affordable,
@@ -140,7 +139,7 @@
               AND <span>MAXILLOFACIAL</span> SURGERY</h2>
           </div>
           <div class="col-md-4 wow fadeIn" data-wow-offset="50" data-wow-delay="0.6s">
-            <i class="fa fa-laptop"></i>
+            <i class="fas fa-user-md"></i>
             <h4>Web Design</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque
               tempus ac eget diam et laoreet phasellus ut nisi id leo molestie.
@@ -326,5 +325,6 @@ id="message"></textarea> <input class="form-control" type="submit"> </form>
       </div>
     </footer>
     <!-- end copyright -->
+    
   </body>
 </html>
