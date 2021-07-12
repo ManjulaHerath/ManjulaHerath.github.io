@@ -288,9 +288,7 @@ id="message"></textarea> <input class="form-control" type="submit"> </form>
             data-wow-delay="0.6s">
             <address>
               <p class="address-title">MY ADDRESS</p>
-              <span>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elitquisque tempus ac eget diam et laoreet phasellus ut nisi id
-                leo molestie.</span>
+              <span>Feel free to contact me for any inquiries.&nbsp;</span>
               <p>+94-777-376310</p>
               <p><a href="mailto:manjulamh@gmail.com">manjulamh@gmail.com</a></p>
               <p> Colombo South Teaching Hospital</p>
