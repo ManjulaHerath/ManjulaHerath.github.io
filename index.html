@@ -386,6 +386,34 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line-soft);padding
 .qa .ans{padding:0 24px 22px;color:var(--muted);font-size:15px;max-width:70ch}
 .loc-line{margin-top:34px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
 
+/* ============ CASE GALLERY ============ */
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+@media(max-width:800px){.case-grid{grid-template-columns:1fr}}
+.case{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .45s var(--ease),border-color .45s,box-shadow .45s}
+.case:hover{transform:translateY(-6px);border-color:rgba(111,231,255,.32);box-shadow:0 22px 60px rgba(3,8,16,.55)}
+.case-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#060B14;cursor:zoom-in}
+.case-media img.main{width:100%;height:100%;object-fit:cover;transition:filter .5s,transform .6s var(--ease)}
+.case:hover .case-media img.main{transform:scale(1.035)}
+.case-media.sensitive{cursor:default}
+.case-media.sensitive img.main{filter:blur(28px) saturate(.65);transform:scale(1.12)}
+.sense-btn{position:absolute;inset:0;display:none;flex-direction:column;gap:10px;align-items:center;justify-content:center;background:rgba(4,6,11,.45);border:0;cursor:pointer;color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:20px}
+.sense-btn b{border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:500}
+.sense-btn:hover b{border-color:rgba(111,231,255,.5);box-shadow:0 0 20px rgba(111,231,255,.15)}
+.case-media.sensitive .sense-btn{display:flex}
+.case-thumbs{display:flex;gap:8px;padding:14px 24px 0}
+.case-thumbs img{width:58px;height:44px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer;opacity:.55;transition:.25s}
+.case-thumbs img.active,.case-thumbs img:hover{opacity:1;border-color:rgba(111,231,255,.55)}
+.case-body{padding:16px 24px 24px}
+.case-body h4{font-family:var(--display);font-weight:600;font-size:18.5px;margin:10px 0 8px}
+.case-body p{color:var(--muted);font-size:14px}
+.case-note{margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim);max-width:70ch;line-height:1.8}
+#lightbox{position:fixed;inset:0;z-index:1000;background:rgba(2,4,8,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:4vh 4vw}
+#lightbox.open{display:flex}
+#lightbox img{max-width:92vw;max-height:78vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.6)}
+#lightbox .lb-cap{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;max-width:80ch}
+#lightbox .lb-close{position:absolute;top:22px;right:26px;background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-family:var(--mono);font-size:12px;padding:10px 18px;cursor:pointer;letter-spacing:.1em}
+#lightbox .lb-close:hover{border-color:rgba(111,231,255,.5)}
+
 /* ============ REDUCED MOTION ============ */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
@@ -431,6 +459,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line-soft);padding
     <a href="#opensource">Open Source</a>
     <a href="#ventures">Ventures</a>
     <a href="#practice">Services</a>
+    <a href="#cases">Cases</a>
     <a href="#academic">Academic</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
@@ -596,6 +625,102 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line-soft);padding
     </div>
   </section>
 
+  <!-- CASES -->
+  <section id="cases">
+    <div class="eyebrow reveal">Case gallery</div>
+    <h2 class="reveal">Selected cases, <span class="grad-text">planned &amp; delivered</span>.</h2>
+    <p class="lede reveal" data-delay="1">Real reconstructions from the digital workflow — designed on the patient's own CT, 3D-printed, and placed exactly as planned. Intraoperative photographs are blurred by default.</p>
+    <div class="case-grid">
+
+      <figure class="case reveal">
+        <div class="case-media">
+          <img class="main" src="assets/case-ortho-1.jpg" data-g="1" alt="3D-printed occlusal wafer guiding the bite during 3D Slicer planned orthognathic jaw surgery in Sri Lanka">
+          <button class="sense-btn" type="button"><b>Surgical imagery — click to view</b><span>Contains intraoperative photographs</span></button>
+        </div>
+        <div class="case-thumbs">
+          <img src="assets/case-ortho-1.jpg" data-g="1" class="active" alt="3D-printed occlusal wafer during orthognathic surgery">
+          <img src="assets/case-ortho-2.jpg" data-g="1" alt="Le Fort I osteotomy performed with 3D-printed cutting guides">
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">Orthognathic · 3D Slicer</span>
+          <h4>Guided Orthognathic (Jaw) Surgery</h4>
+          <p>Le Fort I osteotomy executed with 3D-printed cutting guides and occlusal wafers — the entire movement planned in open-source 3D Slicer before theatre.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="case reveal" data-delay="1">
+        <div class="case-media">
+          <img class="main" src="assets/case-tmj-1.jpg" alt="Patient-specific total TMJ replacement prosthesis fitted on a 3D-printed skull model">
+          <button class="sense-btn" type="button"><b>Surgical imagery — click to view</b><span>Contains intraoperative photographs</span></button>
+        </div>
+        <div class="case-thumbs">
+          <img src="assets/case-tmj-1.jpg" class="active" alt="Total TMJ prosthesis on 3D-printed model">
+          <img src="assets/case-tmj-2.jpg" data-g="1" alt="Titanium total temporomandibular joint replacement during surgery">
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">PSI · TMJ</span>
+          <h4>Total TMJ Replacement</h4>
+          <p>Patient-specific total temporomandibular joint replacement — custom condyle and fossa components designed on the patient's CT and verified on a printed model before surgery.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="case reveal">
+        <div class="case-media">
+          <img class="main" src="assets/case-peek-1.jpg" data-g="1" alt="Gender-affirming facial contouring surgery with patient-specific PEEK implants — virtual plan and intraoperative placement">
+          <button class="sense-btn" type="button"><b>Surgical imagery — click to view</b><span>Contains intraoperative photographs</span></button>
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">PEEK · Facial contouring</span>
+          <h4>Facial Contouring with PEEK Implants</h4>
+          <p>Gender-affirming facial contouring — patient-specific PEEK implants for the brow, zygoma and jawline, designed as a single digital plan and placed through concealed incisions.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="case reveal" data-delay="1">
+        <div class="case-media">
+          <img class="main" src="assets/case-midface-1.jpg" alt="Patient-specific titanium midface reconstruction implant on a 3D-printed skull model">
+        </div>
+        <div class="case-thumbs">
+          <img src="assets/case-midface-1.jpg" class="active" alt="Titanium midface implant on model">
+          <img src="assets/case-midface-2.jpg" alt="Matching 3D-printed cutting guide for guided midface osteotomy">
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">Guide + implant workflow</span>
+          <h4>Guided Midface Reconstruction</h4>
+          <p>A matched pair from one digital plan: the 3D-printed cutting guide defines the osteotomy, and the titanium patient-specific implant fits the defect it creates — exactly.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="case reveal">
+        <div class="case-media">
+          <img class="main" src="assets/case-titanium-1.jpg" alt="Patient-specific titanium cranioplasty mesh implant on a 3D-printed skull model">
+        </div>
+        <div class="case-thumbs">
+          <img src="assets/case-titanium-1.jpg" class="active" alt="Titanium cranioplasty mesh on skull model">
+          <img src="assets/case-titanium-2.jpg" alt="3D-printed titanium orbito-zygomatic patient-specific implant">
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">SLM Titanium · PSI</span>
+          <h4>Titanium Skull &amp; Orbital Implants</h4>
+          <p>Selective-laser-melted titanium patient-specific implants — cranioplasty for skull defects and orbito-zygomatic reconstruction, printed to sub-millimetre fit.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="case reveal" data-delay="1">
+        <div class="case-media">
+          <img class="main" src="assets/case-subperiosteal-1.jpg" alt="Patient-specific subperiosteal implant framework for the severely atrophic maxilla on an anatomical model">
+        </div>
+        <figcaption class="case-body">
+          <span class="card-tag">Subperiosteal · Zygomatic anchorage</span>
+          <h4>Subperiosteal Implants for the Atrophic Maxilla</h4>
+          <p>Custom subperiosteal implant frameworks for patients with severe bone loss — fixed teeth without bone grafting, anchored on the remaining facial skeleton.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+    <p class="case-note reveal">Intraoperative images are blurred until you choose to view them. Published with patient consent; all images de-identified.</p>
+  </section>
+
   <!-- ACADEMIC -->
   <section id="academic">
     <div class="eyebrow reveal">Academic · teaching · governance</div>
@@ -671,6 +796,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line-soft);padding
   <span>© <span id="yr"></span> Dr. Manjula Herath · BDS, MD (OMFS)</span>
   <span>Consultant Oral &amp; Maxillofacial Surgeon — Colombo &amp; Nuwara Eliya, Sri Lanka</span>
 </footer>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Case image viewer">
+  <button class="lb-close" type="button">CLOSE ✕</button>
+  <img src="" alt="">
+  <p class="lb-cap"></p>
+</div>
 
 <script>
 (function(){
@@ -797,6 +928,44 @@ if (heroVisual){
     }, {passive:true});
   }
 }
+
+/* ---------- Case gallery: sensitive blur, thumbs, lightbox ---------- */
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.lb-cap');
+function openLB(src, cap){ lbImg.src = src; lbImg.alt = cap; lbCap.textContent = cap; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLB(){ lb.classList.remove('open'); lbImg.src=''; document.body.style.overflow=''; }
+lb.addEventListener('click', closeLB);
+lb.querySelector('.lb-close').addEventListener('click', closeLB);
+addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+document.querySelectorAll('.case').forEach(card => {
+  const media = card.querySelector('.case-media');
+  const main = media.querySelector('img.main');
+  const btn = media.querySelector('.sense-btn');
+  const syncBlur = () => {
+    const graphic = main.dataset.g === '1' && !card.dataset.revealed;
+    media.classList.toggle('sensitive', graphic);
+  };
+  syncBlur();
+  if (btn) btn.addEventListener('click', e => {
+    e.stopPropagation();
+    card.dataset.revealed = '1';
+    syncBlur();
+  });
+  media.addEventListener('click', () => {
+    if (media.classList.contains('sensitive')) return;
+    openLB(main.src, main.alt);
+  });
+  card.querySelectorAll('.case-thumbs img').forEach(th => {
+    th.addEventListener('click', () => {
+      main.src = th.src; main.alt = th.alt;
+      if (th.dataset.g === '1') main.dataset.g = '1'; else delete main.dataset.g;
+      card.querySelectorAll('.case-thumbs img').forEach(t => t.classList.remove('active'));
+      th.classList.add('active');
+      syncBlur();
+    });
+  });
+});
 
 /* ---------- Ambient particle field ---------- */
 const canvas = document.getElementById('field');
